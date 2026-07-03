@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM.ECON - Sistema de Gestão Imobiliária</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🏠 CRM.ECON</h1>
+            <p class="subtitle">Sistema de Gestão Imobiliária</p>
+        </header>
+
+        <!-- Dashboard Metrics -->
+        <section class="metrics-section">
+            <div class="metric-card">
+                <div class="metric-icon">👥</div>
+                <div class="metric-content">
+                    <h3>Contatos</h3>
+                    <p class="metric-value" id="total-contacts">0</p>
+                </div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-icon">🏢</div>
+                <div class="metric-content">
+                    <h3>Visitas</h3>
+                    <p class="metric-value" id="total-visits">0</p>
+                </div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-icon">💰</div>
+                <div class="metric-content">
+                    <h3>Vendas</h3>
+                    <p class="metric-value" id="total-sales">0</p>
+                    <p class="metric-sub" id="total-sales-value">R$ 0,00</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Charts Section -->
+        <section class="charts-section">
+            <div class="chart-container">
+                <h2>Funil de Vendas</h2>
+                <canvas id="salesFunnel"></canvas>
+            </div>
+        </section>
+
+        <!-- Form Section -->
+        <section class="form-section">
+            <div class="form-container">
+                <h2>Novo Cadastro</h2>
+                <form id="lead-form">
+                    <div class="form-group">
+                        <label for="name">Nome Completo *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Telefone *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-method">Meio de Contato *</label>
+                        <select id="contact-method" name="contact-method" required>
+                            <option value="">Selecione...</option>
+                            <option value="whatsapp">WhatsApp</option>
+                            <option value="ligacao">Ligação</option>
+                            <option value="indicacao">Indicação</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="stage">Etapa *</label>
+                        <select id="stage" name="stage" required>
+                            <option value="">Selecione...</option>
+                            <option value="prospecto">Prospecto</option>
+                            <option value="atendimento">Atendimento</option>
+                            <option value="visita">Visita</option>
+                            <option value="venda">Venda</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="value">Valor (R$)</label>
+                        <input type="number" id="value" name="value" min="0" step="0.01">
+                    </div>
+                    <button type="submit" class="btn-submit">Salvar Cadastro</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Notification -->
+        <div id="notification" class="notification hidden">
+            <span id="notification-message"></span>
+        </div>
+    </div>
+
+    <script src="config.js" onerror="this.remove()"></script>
+    <script src="api.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
