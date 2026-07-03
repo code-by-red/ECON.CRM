@@ -17,14 +17,11 @@ const api = {
         return null;
     },
 
-    // Obter URL com proxy CORS para desenvolvimento local
+    // Obter URL com proxy CORS (necessário para Google Apps Script)
     getProxyURL: function(url) {
-        // Usar proxy CORS para desenvolvimento local
-        // Em produção, não usar proxy
-        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-            return `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`;
-        }
-        return url;
+        // Google Apps Script não suporta CORS nativamente
+        // Usar proxy para todas as requisições
+        return `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`;
     },
 
     // Buscar todos os leads
