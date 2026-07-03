@@ -1,11 +1,9 @@
 {
   "version": 2,
-  "buildCommand": "node build.js",
-  "outputDirectory": ".",
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "dest": "/$1"
     }
   ]
 }
