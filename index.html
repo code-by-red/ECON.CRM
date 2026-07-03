@@ -97,6 +97,11 @@
         </div>
     </div>
 
+    <script>
+        // Em produção (Vercel), a variável é injetada via build
+        // Em desenvolvimento local, usa config.js
+        window.GOOGLE_APPS_SCRIPT_URL = window.GOOGLE_APPS_SCRIPT_URL || '';
+    </script>
     <script src="config.js" onerror="this.remove()"></script>
     <script src="api.js"></script>
     <script src="scripts.js"></script>
